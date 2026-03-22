@@ -1,0 +1,105 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background (futuristic gradient + glow) */
+body{
+    height: 100vh;
+    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Glow effect background */
+body::before{
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(0, 255, 255, 0.2);
+    filter: blur(150px);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+/* Headings */
+h1{
+    color: #00f2ff;
+    text-shadow: 0 0 10px #00f2ff;
+    margin-bottom: 10px;
+}
+
+h3{
+    color: #c0fefe;
+    margin-bottom: 25px;
+}
+
+/* Glass Card */
+#Main{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 35px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+
+/* Form */
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label{
+    margin-top: 10px;
+    color: #aefcff;
+    font-size: 14px;
+}
+
+/* Inputs */
+input{
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+    width: 350px;
+}
+
+/* Input glow */
+input:focus{
+    border-color: #00f2ff;
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+/* Button */
+button{
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #00f2ff, #007bff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+button:hover{
+    box-shadow: 0 0 15px #00f2ff;
+    transform: scale(1.05);
+}

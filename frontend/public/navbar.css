@@ -1,0 +1,32 @@
+/* Navbar */
+.navbar{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* LIGHT GLASS LOOK */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+#navbar-pic{
+    height: 45px;
+}
+
+/* Links */
+.navbar a{
+    color: #1e3c72;  /* dark text */
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Hover */
+.navbar a:hover{
+    color: #007bff;
+}

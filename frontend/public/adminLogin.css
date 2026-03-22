@@ -1,0 +1,116 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY BACKGROUND */
+body{
+    height: 100vh;
+    background: radial-gradient(circle at top, #141e30, #243b55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* HEADING */
+#eit-placement-heading{
+    font-size: 32px;
+    color: #00f2ff;
+    text-shadow: 0 0 15px #00f2ff;
+    margin-bottom: 10px;
+}
+
+/* SUB HEADING */
+#enter-details-heading{
+    font-size: 20px;
+    color: #c0fefe;
+    margin-bottom: 20px;
+}
+
+/* FORM CARD */
+#admin-login-form{
+    width: 350px;
+    padding: 35px;
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow: 0 0 30px rgba(0,255,255,0.2);
+}
+
+/* FORM */
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABELS */
+h3{
+    font-size: 14px;
+    color: #aefcff;
+}
+
+/* INPUTS */
+#admin-email-input,
+#student-password-input{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* INPUT FOCUS */
+#admin-email-input:focus,
+#student-password-input:focus{
+    border-color: #00f2ff;
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+/* PLACEHOLDER */
+input::placeholder{
+    color: #bbb;
+}
+
+/* BUTTON */
+#admin-login-button{
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+
+    background: linear-gradient(90deg, #00f2ff, #007bff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+#admin-login-button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00f2ff;
+}
+
+/* GLOW BACKGROUND EFFECT */
+body::before{
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(0,255,255,0.2);
+    filter: blur(120px);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}

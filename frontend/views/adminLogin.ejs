@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/adminLogin.css">
+</head>
+
+<body>
+    <h1 id="eit-placement-heading">Welcome TO EIT Placement Portal</h1>
+    <br>
+    <h2 id="enter-details-heading">Hello Admin Enter Your Details To Continue</h2>
+    <br>
+    <br>
+    <br>
+    <div id="admin-login-form">
+        <br>
+        <br>
+
+        <form method="post" action="/admin/login">
+            <h3> Enter Your Email:</h3>
+            <br>
+            <input id="admin-email-input" name="email" type="email" required placeholder="Enter admin's Email">
+            <!-- <p id="valid-email-text"> Enter A Vaild Email</p> -->
+            <br>
+            <br>
+            <h3> Enter Your Password:</h3>
+            <br>
+            <input id="student-password-input" name="password" type="password" required placeholder="Enter admin's Password">
+            <!-- <p id="valid-password-text">Enter A Valid Password</p> -->
+            <br>
+            <br>
+            <button id="admin-login-button">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>

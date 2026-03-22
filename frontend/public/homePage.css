@@ -1,0 +1,73 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body{
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* MAIN */
+#Main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+/* CARDS */
+#Admin, #Student{
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    transition: 0.4s;
+}
+
+/* TEXT FIX */
+#Admin h2, #Student h2{
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
+}
+
+/* IMAGES */
+#Admin img, #Student img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+#Admin:hover, #Student:hover{
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 25px cyan;
+}
+
+/* IMAGE HOVER */
+#Admin img:hover, #Student img:hover{
+    transform: scale(1.05);
+}
+
+/* LINKS */
+a{
+    text-decoration: none;
+    color: white;
+}
