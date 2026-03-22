@@ -2,12 +2,14 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path")
+const path = require("path");
+const methodOverride = require("method-override");
 //const ejs = require("ejs");
 const app = express();
 const port = 8080;
 const Student = require("./backend/data/student.js");
 const Admin = require("./backend/data/admin.js");
+const PlacementDrive = require("./backend/data/placementDrive.js");
 //==================================================================================
 
 //Yaha Hum Saara Middleware wala kaaam karenge
@@ -16,6 +18,7 @@ app.set("views",path.join(__dirname,"frontend/views"));
 app.use(express.static(path.join(__dirname,"frontend/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(methodOverride("_method"));
 //======================================================================================
 
 //Yaha Hum Database se connect karenge 
@@ -49,21 +52,87 @@ app.get("/admin/login", async function(req,res){
     res.render("adminLogin.ejs");
 });
 
+//=================================================================================================================
+
+//Yaha Hum Admin ka login karwaenge aur uske baad usko saari currently running placement dives dikhayenge 
 app.post("/admin/login", async function(req,res){
     let {email,password} = req.body;
-    console.log(email,password);
+    //console.log(email,password);
     let searchedAdmin = await Admin.findOne({email:email, password:password});
 
-    console.log(searchedAdmin);
+   // console.log(searchedAdmin);
     if(!searchedAdmin){
        return res.send("Invalid Credentials")
     };
+    res.redirect("/admin")
+});
+//================================================================================================================================
+
+app.get("/admin", async function(req,res){
+    let allPlacementDrive = await PlacementDrive.find({});
+    //console.log(allPlacementDrive);
     
-    let adminId = searchedAdmin._id;
+    //let adminId = searchedAdmin._id;
     
-    res.send("See Console");
+    res.render("admin.ejs",{allPlacementDrive});
 
 })
+
+//================================================================================================================================
+
+//Yaha Hum Admin Se New Drive Add karne ke liye usko form denge 
+app.get("/admin/new", async function(req,res){
+    res.render("newDrive.ejs");
+
+});
+//===============================================================================================================================
+
+//Yaha Hum New Drive ka Form  ka data ko DB mei daalenge 
+app.post("/admin/new", async function(req,res){
+    let {companyName,companyLocation,ctc,jobDescription,minimumCgpa} = req.body;
+    //console.log(companyName,companyLocation,ctc,jobDescription,minimumCgpa);
+    let newDrive = new PlacementDrive({
+        companyName:companyName,
+        companyLocation:companyLocation,
+        ctc:ctc,
+        jobDescription:jobDescription,
+        minimumCgpa:minimumCgpa,
+    });
+    await newDrive.save();
+    res.redirect("/admin");
+});
+//================================================================================================================================
+
+//Yaha Hum Drive Ko delete karne ke liye route likhenge 
+app.delete("/admin/:id", async function(req,res){
+    let {id} =req.params;
+   let deletedDrive = await PlacementDrive.findByIdAndDelete(`${id}`);
+   console.log(deletedDrive);
+    console.log("Drive Deleted");
+    res.redirect("/admin");
+});
+//================================================================================================================================
+
+//Yaha Hum Drive Ko Edit Karne Ka Route Likenge 
+app.get("/admin/:id/edit", async function(req,res){
+    let {id} = req.params;
+    let searchedDrive = await PlacementDrive.findById(`${id}`);
+    res.render("editDrive",{searchedDrive});
+});
+
+app.put("/admin/:id/edit" , async function(req,res){
+    let {id} = req.params;
+    let {companyName,companyLocation,ctc,jobDescription,minimumCgpa} = req.body;
+    let updatedDrive = await PlacementDrive.findByIdAndUpdate(`${id}`,{
+        companyName:companyName,
+        companyLocation:companyLocation,
+        ctc:ctc,
+        jobDescription:jobDescription,
+        minimumCgpa:minimumCgpa,
+    },{new:true});
+    console.log("Drive Updated SucessFully and Loged into the console",updatedDrive);
+    res.redirect("/admin");
+});
 
 
 
@@ -74,7 +143,76 @@ app.get("/admin/all/students", async function(req,res){
 });
 //============================================================================================================
 
-//Yaha Hum Student ka Saara kaam karenge 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//🧑‍🎓🧑‍🎓🧑‍🎓🧑‍🎓🧑‍🎓Yaha Hum Student ka Saara kaam karenge 
 
 app.get("/student/login",async function(req,res){
     res.render("studentLogin");
@@ -84,7 +222,7 @@ app.post("/student/login", async function(req,res){
     let {email,password} = req.body;
     //console.log(email,password);
     let searchedStudent = await Student.findOne({email:email, password:password});
-    console.log(searchedStudent);
+    //console.log(searchedStudent);
 
 
     if(!searchedStudent){

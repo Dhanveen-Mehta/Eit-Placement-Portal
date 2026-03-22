@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EIT Admin</title>
+    <link rel="stylesheet" href="/admin.css">
+</head>
+
+<body>
+
+     <h1 id="admin-heading">Hello EIT Admin</h1>
+
+    <h2 id="sub-heading">Here are all your Placement Drives</h2>
+
+    <form method="get" action="/admin/new">
+        <button>New Drive</button>
+    </form>
+    <br>
+    <br>
+
+
+    <div id="drives-container">
+
+        <% for(let i in allPlacementDrive){ %>
+
+            <div class="drive-card">
+
+                <p class="company-name">
+                    <%= allPlacementDrive[i].companyName %>
+                </p>
+
+                <p class="location">
+                    📍 <%= allPlacementDrive[i].companyLocation %>
+                </p>
+
+                <p class="ctc">
+                    💰 CTC: ₹<%= allPlacementDrive[i].ctc.toLocaleString("en-IN") %>/PA
+                </p>
+
+                <p class="desc">
+                    <%= allPlacementDrive[i].jobDescription %>
+                </p>
+
+                <p class="cgpa">
+                    🎯 Min CGPA: <%= allPlacementDrive[i].minimumCgpa %>
+                </p>
+
+                <form method="get" action="/admin/<%= allPlacementDrive[i]._id%>/edit">
+                    <button>Edit Drive</button>
+                </form>
+
+                <form method="post" action="/admin/<%=allPlacementDrive[i]._id%>/?_method=Delete">
+                    <button>Delete Drive</button>
+                </form>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+</html>

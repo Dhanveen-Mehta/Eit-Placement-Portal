@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Placement Drive</title>
+    <link rel="stylesheet" href="/newDrive.css">
+</head>
+
+<body>
+
+    <h1 id="form-heading">Add a New Placement Drive</h1>
+
+    <div id="form-container">
+
+        <form id="drive-form" method="post" action="/admin/new">
+
+            <input id="company-name" placeholder="Enter Company Name" name="companyName" type="text" required>
+
+            <input id="company-location" placeholder="Enter Company Location" name="companyLocation" type="text" required>
+
+            <input id="ctc-input" placeholder="Enter CTC in Rupees per Year " name="ctc" type="number" required>
+
+            <textarea id="job-desc" placeholder="Enter Job Description" name="jobDescription" required></textarea>
+
+            <input id="cgpa-input" placeholder="Enter Minimum CGPA" name="minimumCgpa" type="number" min="0" max="10" step="0.1" required>
+
+            <button id="submit-btn" type="submit">Add Drive</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
