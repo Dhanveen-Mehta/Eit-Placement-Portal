@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: white;
+    padding: 30px;
+}
+
+/* Heading */
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Card */
+.drive-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    transition: 0.3s;
+}
+
+/* Hover */
+.drive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+/* Text */
+.company-name {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.desc {
+    margin-top: 10px;
+    color: #94a3b8;
+}
+
+/* Button */
+
+.apply-btn {
+    text-align: center;
+    width: 200px;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.apply-btn:hover {
+    box-shadow: 0 0 10px #38bdf8;
+}

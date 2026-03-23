@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Drives</title>
+    <link rel="stylesheet" href="/student.css">
+</head>
+
+<body>
+
+    <h1 class="heading">🚀 Active Placement Drives for <%=searchedStudent.name%></h1>
+
+    <% for (let i in allPlacementDrive) { %>
+
+        <div class="drive-card">
+            
+            <h2 class="company-name">
+                <%= allPlacementDrive[i].companyName %>
+            </h2>
+
+            <p>📍 Location: <%= allPlacementDrive[i].companyLocation %>
+            </p>
+            <p>💰 CTC: <%= allPlacementDrive[i].ctc %>
+            </p>
+            <p>🎯 Min CGPA: <%= allPlacementDrive[i].minimumCgpa %>
+            </p>
+
+            <p class="desc">
+                <%= allPlacementDrive[i].jobDescription %>
+            </p>
+
+            <form  method="get" action="/student/<%=searchedStudent._id%>/apply/<%=allPlacementDrive[i]._id%>">
+                <button class="apply-btn">Apply Now</button>  
+            </form>
+
+        </div>
+
+        <% } %>
+
+</body>
+
+</html>

@@ -241,8 +241,32 @@ app.get("/student/:id", async function(req,res){
         res.send("Inavlid Credentials Please Check again");
     }
     let searchedStudent = await Student.findOne({_id:id});
-    console.log(searchedStudent);
+    //console.log(searchedStudent);
+    let allPlacementDrive = await PlacementDrive.find({});
+    //console.log(allPlacementDrive);
+
+    res.render("student.ejs",{allPlacementDrive,searchedStudent});
+
+});
+
+app.get("/student/:stuId/apply/:jobId", async function(req,res){
+    let {stuId,jobId} = req.params;
+    let stu = await Student.findById(`${stuId}`);
+    let job = await PlacementDrive.findById(`${jobId}`);
+
+    if(stu.companyApplied.includes(jobId)){
+        //console.log(stu,job)
+       return res.send("Already Applied Don't Worry!!")
+    }
+    await stu.companyApplied.push(jobId);
+    await job.studentsApplied.push(stuId);
+    await stu.save();
+    await job.save();
+
     res.send("See Console");
+    //console.log(stu,job);
+    
+
 
 });
 
